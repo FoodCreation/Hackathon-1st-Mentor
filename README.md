@@ -1,2 +1,2 @@
-# menter_team
-第1回Hackathon
+# Hackathon-1st-Mentor
+第1回プロジェクト内ハッカソンのチームメンターのレポジトリです。
