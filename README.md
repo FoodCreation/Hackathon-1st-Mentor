@@ -1,2 +1,2 @@
 # menter_team
-第一回Hackathon
+第1回Hackathon
