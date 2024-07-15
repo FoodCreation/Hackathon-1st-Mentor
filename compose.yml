@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend/my-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/my-app:/app
+      - /app/node_modules
+    command: ["sh", "-c", "pnpm run build && pnpm start"]
