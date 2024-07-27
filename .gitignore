@@ -1,0 +1,11 @@
+#.env
+.env
+
+#pycache
+**/__pycache__/**
+
+# pnpm store
+frontend/my-app/.pnpm-store/
+
+#node_modules
+frontend/my-app/node_modules/
