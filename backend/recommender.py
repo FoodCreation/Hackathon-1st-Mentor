@@ -1,6 +1,6 @@
 import requests
 
-GEMINI_API_KEY = "env" # APIキーを適宜設定してください。
+GEMINI_API_KEY = "envhoge" # APIキーを適宜設定してください。
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={GEMINI_API_KEY}"
 
 def get_recommendation(prompt: str) -> dict:
