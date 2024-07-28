@@ -19,15 +19,25 @@ export default function SelectGenre() {
         const food_type = selectedButton;
         const hunger_level = 6;
 
-        const response = await fetch('http://localhost:8000/recommend', { // FastAPIのエンドポイントに送信
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ food_type, hunger_level }), // 変数を送信
-        });
-        const result = await response.json();
-        setRecommendation(result.recommendation); // recommendationのステートに結果を設定
+        try {
+            const response = await fetch('/api/recommendation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ food_type, hunger_level }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const result = await response.json();
+            setRecommendation(result.recommendation || "No recommendation found.");
+        } catch (error) {
+            console.error('Error fetching recommendation:', error);
+            setRecommendation('An error occurred while fetching the recommendation.');
+        }
     };
 
     return (
