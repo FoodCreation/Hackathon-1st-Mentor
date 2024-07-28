@@ -6,14 +6,17 @@ from recommender import get_recommendation
 
 app = FastAPI()
 
+# CORSの設定
+origins = ["http://localhost:3000"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=["http://localhost:3000"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 class RecommendationRequest(BaseModel):
     hunger_level: int
     food_type: str
