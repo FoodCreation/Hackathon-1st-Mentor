@@ -15,7 +15,7 @@ if not GEMINI_API_KEY:
 # APIキーの設定
 genai.configure(api_key=GEMINI_API_KEY)
 
-print(GEMINI_API_KEY)
+# print(GEMINI_API_KEY)
 
 # モデルの初期化
 model = genai.GenerativeModel('gemini-1.5-flash')

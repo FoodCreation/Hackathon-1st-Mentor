@@ -32,21 +32,25 @@ export default function SubmitForm() {
         const foodGenreMap = {
             meatValue: '肉',
             fishValue: '魚',
-            vegetable: '野菜'
+            vegetableValue: '野菜'
         }
 
         const food_type = selectedFoodTypeButton ? foodTypeMap[selectedFoodTypeButton] : null;
         const food_genre = selectedFoodGenreButton ? foodGenreMap[selectedFoodGenreButton] : null;
+
+        console.log({ hunger_level: hungerLevel, food_type , food_genre  })
 
         const response = await fetch('http://localhost:8000/recommend', { // FastAPIのエンドポイントに送信
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ food_genre, food_type, hunger_level: hungerLevel }), // 変数を送信
+            body: JSON.stringify({ hunger_level: hungerLevel, food_type , food_genre }), // 変数を送信
         });
         const result = await response.json();
-        setRecommendation(result.recommendation); // recommendationのステートに結果を設定
+        const recommendationText = result.candidates[0].content.parts[0].text; // 結果のテキストを取得
+        setRecommendation(recommendationText || "うまくテキストが取得できていません。"); // recommendationのステートに結果を設定
+        console.log(recommendationText);
     };
 
     return (
