@@ -31,42 +31,21 @@ export default function SelectGenre() {
     };
 
     return (
-        <div>
-            <button
-                style={{
-                    borderRadius: '50%',
-                    width: '100px',
-                    height: '100px',
-                    margin: '10px',
-                    backgroundColor: selectedButton === 'chineseCuisineValue' ? 'lightblue' : 'lightgray',
-                }}
-                onClick={() => handleButtonClick('chineseCuisineValue')}
-            >ボタン1</button>
-            <button
-                style={{
-                    borderRadius: '50%',
-                    width: '100px',
-                    height: '100px',
-                    margin: '10px',
-                    backgroundColor: selectedButton === 'japaneseCuisineValue' ? 'lightblue' : 'lightgray',
-                }}
-                onClick={() => handleButtonClick('japaneseCuisineValue')}
-            >
-                ボタン2
-            </button>
-            <button
-                style={{
-                    borderRadius: '50%',
-                    width: '100px',
-                    height: '100px',
-                    margin: '10px',
-                    backgroundColor: selectedButton === 'westernCuisineValue' ? 'lightblue' : 'lightgray',
-                }}
-                onClick={() => handleButtonClick('westernCuisineValue')}
-            >ボタン3</button>
-            <div>{selectedButton}</div>
-            <div>{recommendation}</div> {/* recommendationを表示 */}
+        <div className="py-10">
+            <h1 className='text-2xl font-bold py-3'>好みの料理タイプを選んでね！</h1>
+            <div className="mx-auto flex justify-between pt-3">
+                <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="和食"
+                    onClick={() => handleButtonClick('japaneseCuisineValue')}
+                ></input>
+                <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="養殖"
+                    onClick={() => handleButtonClick('westernCuisineValue')}
+                ></input>
+                <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="中華人民共和国"
+                    onClick={() => handleButtonClick('chineseCuisineValue')}
+                ></input>
+            </div>
             <button onClick={handleSubmit}>送信</button>
+
         </div>
     );
 }
