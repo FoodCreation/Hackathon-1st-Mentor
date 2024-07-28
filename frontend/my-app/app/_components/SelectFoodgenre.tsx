@@ -9,8 +9,8 @@ interface SelectButtonProps {
 
 const SelectFoodgenre: React.FC<SelectButtonProps> = ({ onSelect }) => {
     return (
-        <div className="w-full pt-10">
-            <h1 className='text-2xl font-bold py-5'>今日のメイン食材は...？</h1>
+        <div className="w-full my-10">
+            <h1 className='text-2xl font-bold pb-5'>今日のメイン食材は...？</h1>
             <div className="mx-auto flex justify-between pt-3">
                 <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="肉"
                     onClick={() => onSelect('meatValue')}
