@@ -1,20 +1,26 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import requests
 from recommender import get_recommendation
 
 app = FastAPI()
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 class RecommendationRequest(BaseModel):
     hunger_level: int
     food_type: str
 
-
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Food Recommendation API"}
-
 
 @app.post("/recommend")
 def recommend(request: RecommendationRequest):
