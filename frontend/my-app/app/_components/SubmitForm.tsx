@@ -50,10 +50,13 @@ export default function SubmitForm() {
     };
 
     return (
-        <div className="py-10 w-full">
+        <div className="py-5 w-full">
             <HungerSlider hungerLevel={hungerLevel} setHungerLevel={setHungerLevel} />
+            <div className="divider divider-secondary"></div>
             <SelectFoodtype onSelect={handleFoodTypeButtonClick} />
+            <div className="divider divider-secondary"></div>
             <SelectFoodgenre onSelect={handleFoodGenreButtonClick} />
+            <div className="divider divider-secondary"></div>
             <SubmitButton onSubmit={handleSubmit} />
         </div>
     );
