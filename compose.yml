@@ -6,6 +6,8 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/app
+    env_file:
+      - .env  # ここを追加
 
   frontend:
     build:
@@ -15,4 +17,6 @@ services:
     volumes:
       - ./frontend/my-app:/app
       - /app/node_modules
+    env_file:
+      - .env
     command: ["sh", "-c", "pnpm run build && pnpm start"]

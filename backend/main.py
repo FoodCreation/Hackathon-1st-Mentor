@@ -1,9 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException,Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import requests
-from recommender import get_recommendation
 
+from recommender import get_recommendation
 app = FastAPI()
 
 # CORSの設定
@@ -26,10 +25,19 @@ def read_root():
     return {"message": "Welcome to the Food Recommendation API"}
 
 @app.post("/recommend")
-def recommend(request: RecommendationRequest):
+async def recommend(request: Request):
     try:
-        prompt = f"空腹度は{request.hunger_level}で、ジャンル{request.food_type}でおすすめの料理を教えてください。口調は端的かつ愉快でお願いします。"
+        request_data = await request.json()
+        hunger_level = request_data.get("hunger_level")
+        food_type = request_data.get("food_type")
+
+        if hunger_level is None or food_type is None:
+            raise HTTPException(status_code=400, detail="Invalid input data")
+
+        prompt = f"空腹度は{hunger_level}で、ジャンル{food_type}でおすすめの料理を教えてください。口調は端的かつ愉快でお願いします。"
         recommendation = get_recommendation(prompt)
         return recommendation
-    except requests.RequestException as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Unexpected error occurred: {e}")
