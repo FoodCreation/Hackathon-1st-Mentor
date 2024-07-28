@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import "app/styles/hunger-slider.css"
 
 export default function HungerSlider() {
     const [hungerLevel, setHungerLevel] = useState(6);
@@ -9,7 +10,8 @@ export default function HungerSlider() {
     };
 
     return (
-        <div className='my-10'>
+        <div className='my-10 text-slate-900 w-full'>
+            <h1 className='text-2xl font-bold py-3'>今の空腹度を選んでね！（0〜10）</h1>
             <input
                 type="range"
                 min={1}
@@ -17,10 +19,10 @@ export default function HungerSlider() {
                 value={hungerLevel}
                 onChange={handleSliderChange}
                 step="1"
-                className="range range-lg"
+                className="w-full inputRange mt-5 mb-2"
             />
-            <div className="flex w-full justify-between text-base">
-                <span className='pl-2'>1</span>
+            <div className="flex justify-between text-lg font-bold pt-2 text-slate-900 mx-3">
+                <span>1</span>
                 <span>2</span>
                 <span>3</span>
                 <span>4</span>
@@ -29,9 +31,8 @@ export default function HungerSlider() {
                 <span>7</span>
                 <span>8</span>
                 <span>9</span>
-                <span className='pr-2'>10</span>
+                <span>10</span>
             </div>
-            <div>Hunger Level: {hungerLevel}</div>
         </div>
     );
 }
