@@ -1,17 +1,21 @@
-"use client"
-import React, { useState } from 'react';
-import "app/styles/hunger-slider.css"
+"use client";
+import React from 'react';
+import "app/styles/hunger-slider.css";
 
-export default function HungerSlider() {
-    const [hungerLevel, setHungerLevel] = useState(6);
+interface HungerSliderProps {
+    hungerLevel: number;
+    setHungerLevel: (level: number) => void;
+}
+
+const HungerSlider: React.FC<HungerSliderProps> = ({ hungerLevel, setHungerLevel }) => {
 
     const handleSliderChange = (event) => {
-        setHungerLevel(event.target.value);
+        setHungerLevel(Number(event.target.value));
     };
 
     return (
         <div className='my-10 text-slate-900 w-full'>
-            <h1 className='text-2xl font-bold py-3'>今の空腹度を選んでね！（0〜10）</h1>
+            <h1 className='text-2xl font-bold py-5'>今の空腹度を選んでね！（0〜10）</h1>
             <input
                 type="range"
                 min={1}
@@ -35,4 +39,6 @@ export default function HungerSlider() {
             </div>
         </div>
     );
-}
+};
+
+export default HungerSlider;
