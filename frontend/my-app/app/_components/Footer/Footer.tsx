@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="footer footer-center bg-red-800 text-slate-50 p-10">
+        <footer className="footer footer-center bg-slate-600 text-slate-50 p-10">
             <aside>
                 <Image className="rounded-full" src="/Project_Logo.png" width={100} height={100} alt="フードクリエイションプロジェクトのロゴ"></Image>
                 <div className="pt-2 text-lg font-bold">

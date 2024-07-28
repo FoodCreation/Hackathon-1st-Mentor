@@ -1,17 +1,26 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-    },
+    extend: {},
   },
   plugins: [
     require('daisyui'),
   ],
-};
-export default config;
+  daisyui: {
+    themes: [
+      {
+        shikanoko: {
+          "primary": "rgb(239 68 68)",
+          "primary-content": "rgb(254 226 226)",
+          "base-100": "rgb(250 250 249)",
+          "neutral": "rgb(82 82 82)"
+        },
+      },
+    ],
+  },
+}

@@ -7,15 +7,14 @@ export default function SelectGenre() {
     type ButtonValue = 'chineseCuisineValue' | 'japaneseCuisineValue' | 'westernCuisineValue';
 
     const [selectedButton, setSelectedButton] = useState<ButtonValue | null>(null);
-    const [abc, setAbc] = useState<string>('defaultAbc'); // 追加したabcのステート
-    const [recommendation, setRecommendation] = useState<string>(''); // recommendationのステート
+    const [abc, setAbc] = useState<string>('defaultAbc');
+    const [recommendation, setRecommendation] = useState<string>('');
 
     const handleButtonClick = (value: ButtonValue) => {
         setSelectedButton(value);
     };
 
     const handleSubmit = async () => {
-        // selectedButtonとabcの値を設定
         const food_type = selectedButton;
         const hunger_level = 6;
 
@@ -31,7 +30,7 @@ export default function SelectGenre() {
     };
 
     return (
-        <div className="py-10">
+        <div className="py-10 w-full">
             <h1 className='text-2xl font-bold py-3'>好みの料理タイプを選んでね！</h1>
             <div className="mx-auto flex justify-between pt-3">
                 <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="和食"
@@ -44,7 +43,10 @@ export default function SelectGenre() {
                     onClick={() => handleButtonClick('chineseCuisineValue')}
                 ></input>
             </div>
-            <button onClick={handleSubmit}>送信</button>
+
+            <div className="text-center mt-20 mb-10">
+                <button className="btn btn-wide btn-lg text-slate-50 btn-primary text-4xl" onClick={handleSubmit}>送信</button>
+            </div>
 
         </div>
     );
