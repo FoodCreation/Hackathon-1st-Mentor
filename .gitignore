@@ -9,3 +9,6 @@ frontend/my-app/.pnpm-store/
 
 #node_modules
 frontend/my-app/node_modules/
+
+#client_seacret.json
+./client_seacret.json
