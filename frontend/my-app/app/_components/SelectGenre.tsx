@@ -7,15 +7,14 @@ export default function SelectGenre() {
     type ButtonValue = 'chineseCuisineValue' | 'japaneseCuisineValue' | 'westernCuisineValue';
 
     const [selectedButton, setSelectedButton] = useState<ButtonValue | null>(null);
-    const [abc, setAbc] = useState<string>('defaultAbc'); // 追加したabcのステート
-    const [recommendation, setRecommendation] = useState<string>(''); // recommendationのステート
+    const [abc, setAbc] = useState<string>('defaultAbc');
+    const [recommendation, setRecommendation] = useState<string>('');
 
     const handleButtonClick = (value: ButtonValue) => {
         setSelectedButton(value);
     };
 
     const handleSubmit = async () => {
-        // selectedButtonとabcの値を設定
         const food_type = selectedButton;
         const hunger_level = 6;
 
@@ -31,42 +30,24 @@ export default function SelectGenre() {
     };
 
     return (
-        <div>
-            <button
-                style={{
-                    borderRadius: '50%',
-                    width: '100px',
-                    height: '100px',
-                    margin: '10px',
-                    backgroundColor: selectedButton === 'chineseCuisineValue' ? 'lightblue' : 'lightgray',
-                }}
-                onClick={() => handleButtonClick('chineseCuisineValue')}
-            >ボタン1</button>
-            <button
-                style={{
-                    borderRadius: '50%',
-                    width: '100px',
-                    height: '100px',
-                    margin: '10px',
-                    backgroundColor: selectedButton === 'japaneseCuisineValue' ? 'lightblue' : 'lightgray',
-                }}
-                onClick={() => handleButtonClick('japaneseCuisineValue')}
-            >
-                ボタン2
-            </button>
-            <button
-                style={{
-                    borderRadius: '50%',
-                    width: '100px',
-                    height: '100px',
-                    margin: '10px',
-                    backgroundColor: selectedButton === 'westernCuisineValue' ? 'lightblue' : 'lightgray',
-                }}
-                onClick={() => handleButtonClick('westernCuisineValue')}
-            >ボタン3</button>
-            <div>{selectedButton}</div>
-            <div>{recommendation}</div> {/* recommendationを表示 */}
-            <button onClick={handleSubmit}>送信</button>
+        <div className="py-10 w-full">
+            <h1 className='text-2xl font-bold py-3'>好みの料理タイプを選んでね！</h1>
+            <div className="mx-auto flex justify-between pt-3">
+                <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="和食"
+                    onClick={() => handleButtonClick('japaneseCuisineValue')}
+                ></input>
+                <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="養殖"
+                    onClick={() => handleButtonClick('westernCuisineValue')}
+                ></input>
+                <input type="radio" name="genre" className="btn btn-wide text-lg" aria-label="中華人民共和国"
+                    onClick={() => handleButtonClick('chineseCuisineValue')}
+                ></input>
+            </div>
+
+            <div className="text-center mt-20 mb-10">
+                <button className="btn btn-wide btn-lg text-slate-50 btn-primary text-4xl" onClick={handleSubmit}>送信</button>
+            </div>
+
         </div>
     );
 }

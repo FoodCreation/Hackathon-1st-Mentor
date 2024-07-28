@@ -2,7 +2,7 @@
     appearance: none;
     height: 25px;
     border-radius: 9999px;
-    background: #dddddd;
+    background: oklch(0.915887 0.001227 106.423);
     cursor: pointer;
 }
 
