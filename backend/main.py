@@ -20,6 +20,7 @@ app.add_middleware(
 class RecommendationRequest(BaseModel):
     hunger_level: int
     food_type: str
+    food_genre: str
 
 @app.get("/")
 def read_root():
@@ -28,8 +29,13 @@ def read_root():
 @app.post("/recommend")
 def recommend(request: RecommendationRequest):
     try:
-        prompt = f"空腹度は{request.hunger_level}で、ジャンル{request.food_type}でおすすめの料理を教えてください。口調は端的かつ愉快でお願いします。"
+        print(f"Received Request: {request}")
+        prompt = f"空腹度は{request.hunger_level}で、ジャンル{request.food_type}で{request.food_genre}を使用したおすすめの料理を教えてください。口調は端的かつ愉快でお願いします。"
+        print(f"Generated Prompt: {prompt}")
         recommendation = get_recommendation(prompt)
+        print(f"Recommendation: {recommendation}")
         return recommendation
     except requests.RequestException as e:
         raise HTTPException(status_code=500, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
