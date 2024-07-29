@@ -11,16 +11,16 @@ export default function Answer({ isOpen, recommendationText, isLoading, onClose 
     return (
         <div className={`modal ${isOpen ? 'modal-open' : ''}`}>
             <div className="modal-box">
-                <h3 className="font-bold text-2xl">おすすめの料理はこちらです！</h3>
-                <div className="py-4">
+                <h3 className="font-bold text-3xl pb-3 text-center">おすすめの料理はこちらです！</h3>
+                <div className="py-4 flex justify-center items-center">
                     {isLoading ? (
-                        <span className="loading loading-spinner loading-lg"></span>
+                        <span className="loading loading-spinner loading-lg text-center content-center mx-auto"></span>
                     ) : (
                         <p>{recommendationText}</p>
                     )}
                 </div>
                 <div className="modal-action">
-                    <button className="btn" onClick={onClose}>閉じる</button>
+                    <button className="btn text-slate-50 btn-primary mx-auto text-xl" onClick={onClose}>閉じる</button>
                 </div>
             </div>
         </div>
