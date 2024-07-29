@@ -32,7 +32,7 @@ export default function SubmitForm() {
         const foodGenreMap = {
             meatValue: '肉',
             fishValue: '魚',
-            vegetable: '野菜'
+            vegetableValue: '野菜'
         }
 
         const food_type = selectedFoodTypeButton ? foodTypeMap[selectedFoodTypeButton] : null;
@@ -46,7 +46,9 @@ export default function SubmitForm() {
             body: JSON.stringify({ food_genre, food_type, hunger_level: hungerLevel }), // 変数を送信
         });
         const result = await response.json();
-        setRecommendation(result.recommendation); // recommendationのステートに結果を設定
+        const recommendationText = result.candidates[0].content.parts[0].text; // 結果のテキストを取得
+        setRecommendation(recommendationText || "うまくテキストが取得できていません。"); // recommendationのステートに結果を設定
+        console.log(recommendationText);
     };
 
     return (
