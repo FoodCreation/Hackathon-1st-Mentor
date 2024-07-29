@@ -7,7 +7,7 @@ export default function Header() {
             <div className="navbar-start custom-gray">
             </div>
             <div className="navbar-center">
-                <button className="btn btn-ghost text-3xl tooltip tooltip-bottom text-slate-50" data-tip="ﾌｰﾄﾞｸﾘｴｲｼｮﾝ">アプリ名を入力</button>
+                <button className="btn btn-ghost text-3xl tooltip tooltip-bottom text-slate-50" data-tip="ﾌｰﾄﾞｸﾘｴｲｼｮﾝ">MenuMatch</button>
             </div>
             <div className="navbar-end">
             </div>

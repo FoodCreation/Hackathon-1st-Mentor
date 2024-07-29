@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Nagino';
-    src: url('/fonts/nagino.otf') format('opentype');
+    font-family: 'Zen';
+    src: url('/fonts/ZenMaruGothic-Bold.ttf') format('truetype');
 }
 
 * {
-    font-family: 'Nagino';
+    font-family: 'Zen';
 }
