@@ -30,7 +30,7 @@ def read_root():
 def recommend(request: RecommendationRequest):
     try:
         print(f"Received Request: {request}")
-        prompt = f"おすすめの料理を1品教えてください。現在の空腹度を10段階で表すと{request.hunger_level}で、ジャンル{request.food_type}で{request.food_genre}を使用した料理が食べたいです。口調は端的かつ愉快でお願いします。また，回答は太字をや改行などの装飾を使わずに出力して下さい。"
+        prompt = f"おすすめの料理を1品教えてください。現在の空腹度を10段階で表すと{request.hunger_level}で、ジャンル{request.food_type}で{request.food_genre}を使用した料理が食べたいです。口調は端的かつプロフェッショナルでお願いします。そしてその料理について簡易的な献立を示してください。また，回答は太字をや改行などの装飾を使わずに出力して下さい。"
         print(f"Generated Prompt: {prompt}")
         recommendation = get_recommendation(prompt)
         print(f"Recommendation: {recommendation}")
