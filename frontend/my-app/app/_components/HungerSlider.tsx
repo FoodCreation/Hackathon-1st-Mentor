@@ -15,7 +15,7 @@ const HungerSlider: React.FC<HungerSliderProps> = ({ hungerLevel, setHungerLevel
 
     return (
         <div className='mt-3 mb-10 text-slate-900 w-full'>
-            <h1 className='text-2xl font-bold py-5'>今の空腹度は...？</h1>
+            <h1 className='text-2xl font-bold py-5 text-center md:text-left'>今の空腹度は...？</h1>
             <input
                 type="range"
                 min={1}
@@ -25,7 +25,7 @@ const HungerSlider: React.FC<HungerSliderProps> = ({ hungerLevel, setHungerLevel
                 step="1"
                 className="w-full inputRange mt-5 mb-2"
             />
-            <div className="flex justify-between text-lg font-bold pt-2 text-slate-900 ml-3">
+            <div className="flex justify-between text-lg font-bold pt-2 text-slate-900 md:ml-3">
                 <span>１</span>
                 <span>２</span>
                 <span>３</span>

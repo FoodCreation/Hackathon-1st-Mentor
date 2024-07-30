@@ -11,7 +11,7 @@ export default function Answer({ isOpen, recommendationText, isLoading, onClose 
     return (
         <div className={`modal ${isOpen ? 'modal-open' : ''}`}>
             <div className="modal-box">
-                <h3 className="font-bold text-3xl pb-3 text-center">おすすめの料理はこちらです！</h3>
+                <h3 className="text-xl font-bold md:text-3xl pb-3 text-center">おすすめの料理はこちらです！</h3>
                 <div className="py-4 flex justify-center items-center">
                     {isLoading ? (
                         <span className="loading loading-spinner loading-lg text-center content-center mx-auto"></span>
