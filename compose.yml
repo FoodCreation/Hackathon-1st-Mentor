@@ -17,4 +17,6 @@ services:
     volumes:
       - ./frontend/my-app:/app
       - /app/node_modules
+    environment:
+        - WATCHPACK_POLLING=true
     command: ["sh", "-c", "pnpm run build && pnpm start"]
